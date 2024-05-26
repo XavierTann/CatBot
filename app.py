@@ -64,6 +64,9 @@ def chat():
     output = completion.choices[0].message
     print(output)
 
+    response = "Please key in cat breed."
+    image_urls = None
+
     if output.get("function_call"):
         params = json.loads(output["function_call"]["arguments"])
         limit = params.get("limit")
