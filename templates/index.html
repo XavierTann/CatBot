@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <style>
+        #chatbox {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: scroll;
+        }
+        .message {
+            margin: 5px 0;
+        }
+        .cat-image {
+            max-width: 100%;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chatbox"></div>
+    <form id="chatForm">
+        <input type="text" id="userInput" name="message" placeholder="Type a message...">
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        document.getElementById('chatForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const userInput = document.getElementById('userInput').value;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userInput })
+            });
+            const data = await response.json();
+
+            const chatbox = document.getElementById('chatbox');
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message';
+            userMessage.textContent = `You: ${userInput}`;
+            chatbox.appendChild(userMessage);
+
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message';
+            botMessage.textContent = `Bot: ${data.message}`;
+            chatbox.appendChild(botMessage);
+
+            if (data.cat_images) {
+                data.cat_images.forEach(url => {
+                    const catImage = document.createElement('img');
+                    catImage.src = url;
+                    catImage.className = 'cat-image';
+                    chatbox.appendChild(catImage);
+                });
+            }
+
+            document.getElementById('userInput').value = '';
+            chatbox.scrollTop = chatbox.scrollHeight;
+        });
+    </script>
+</body>
+</html>
