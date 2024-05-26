@@ -62,7 +62,6 @@ def chat():
     )
 
     output = completion.choices[0].message
-    print(output)
 
     response = "Please key in cat breed."
     image_urls = None
@@ -79,6 +78,7 @@ def chat():
         second_completion = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-0613",
             messages=[
+                {"role": "system", "content": "I do not want any URLs or links in the response. I just want one fun fact about the cat breed in the first line."},
                 {"role": "user", "content": user_input},
                 {"role": "function", "name": output["function_call"]["name"], "content": function_response},
             ],
