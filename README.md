@@ -15,6 +15,7 @@ API Integration:
 The bot uses OpenAI's GPT-3.5-turbo-0613 model to process user inputs and determine the required action.
 The bot fetches cat images from The Cat API based on the breed provided by the user.
 Response: The bot responds with a fun fact about the requested cat breed and displays the images.
+
 Project Structure
 
 bash
@@ -26,6 +27,7 @@ cat-chatbot/
 ├── .env            # Environment variables file (add your API keys here)
 ├── requirements.txt # Python dependencies
 └── README.md       # This readme file
+
 Packages Used
 
 Flask: A micro web framework for Python.
