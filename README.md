@@ -1,2 +1,24 @@
-# CatBot
-A chatbot that displays cat images at your demand!
+# Cat Chatbot
+
+A simple Flask-based chatbot that provides cat images and fun facts about cat breeds using OpenAI's GPT-3.5-turbo-0613 model and The Cat API.
+
+## Features
+
+**Chat Interface**: Allows users to interact with the bot. </br>
+**Retrieve Cat Images**: Fetches cat images based on the breed specified by the user.</br>
+**Fun Facts**: Provides interesting facts about the specified cat breed along with images. </br>
+
+## How It Works
+
+**User Interaction**: Users interact with the chatbot through a web interface.</br>
+**Breed Request**: Users can request images of specific cat breeds by typing messages like "Show me images of Siamese cats." </br>
+**API Integration**: The bot uses OpenAI's GPT-3.5-turbo-0613 model to process user inputs and determine the required action. 
+The bot fetches cat images from The Cat API based on the breed provided by the user. </br>
+**Response**: The bot responds with a fun fact about the requested cat breed and displays the images.
+
+
+## Packages Used
+
+**Flask**: A micro web framework for Python. </br>
+**Requests**: A simple HTTP library for Python, used to interact with The Cat API. </br>
+**OpenAI**: The official OpenAI API client for accessing GPT-3.5-turbo-0613.
