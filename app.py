@@ -73,7 +73,6 @@ def chat():
 
         cat_images = get_cat_images(limit, breed)
         image_urls = [img['url'] for img in cat_images]
-        function_response = json.dumps(cat_images)
 
         second_completion = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-0613",
