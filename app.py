@@ -80,9 +80,7 @@ def chat():
             messages=[
                 {"role": "system", "content": "I do not want any URLs or links in the response. I just want one fun fact about the cat breed in the first line."},
                 {"role": "user", "content": user_input},
-                {"role": "function", "name": output["function_call"]["name"], "content": function_response},
             ],
-            functions=function_descriptions,
         )
         response = second_completion.choices[0].message.content
     
