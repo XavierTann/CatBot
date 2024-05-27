@@ -31,6 +31,8 @@
         document.getElementById('chatForm').addEventListener('submit', async function(event) {
             event.preventDefault();
             const userInput = document.getElementById('userInput').value;
+
+            // Send post request to /chat endpoint with user input
             const response = await fetch('/chat', {
                 method: 'POST',
                 headers: {
@@ -40,17 +42,20 @@
             });
             const data = await response.json();
 
+            // Displays user text
             const chatbox = document.getElementById('chatbox');
             const userMessage = document.createElement('div');
             userMessage.className = 'message';
             userMessage.textContent = `You: ${userInput}`;
             chatbox.appendChild(userMessage);
 
+            // Displays bot response text
             const botMessage = document.createElement('div');
             botMessage.className = 'message';
             botMessage.textContent = `Bot: ${data.message}`;
             chatbox.appendChild(botMessage);
 
+            // Displays images in response, if there are cat_images in data
             if (data.cat_images) {
                 data.cat_images.forEach(url => {
                     const catImage = document.createElement('img');
@@ -60,6 +65,7 @@
                 });
             }
 
+            // Clears user input
             document.getElementById('userInput').value = '';
             chatbox.scrollTop = chatbox.scrollHeight;
         });
