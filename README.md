@@ -98,10 +98,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any questions or suggestions, please contact [your_email@example.com](mailto:your_email@example.com).
+For any questions or suggestions, please contact xavier.internships@gmail.com
 
 Enjoy chatting with CatBot and discovering fun facts about your favorite cat breeds! 🐱
 
----
-
-Feel free to customize this README file as needed. Happy coding!
